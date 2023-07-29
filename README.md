@@ -11,8 +11,8 @@ pip install monkey-magic
 ### Usage
 
 ```pycon
->>> def href(s):
-...     return '<a href="{0}">{0}</a>'.format(s)
+>>> def href(self):
+...     return f'<a href="{self}">{self}</a>'
 ...
 >>> from monkey_magic import monkeypatch
 >>> monkeypatch(str, href)
