@@ -1,0 +1,14 @@
+[project]
+name = "monkey-magic"
+version = "0.1"
+description = "Monkeypatch built-in types"
+readme = "README.md"
+authors = [{ name = "Wim Glenn", email = "hey@wimglenn.com" }]
+licence = { file = "LICENSE" }
+urls = { Homepage = "https://github.com/wimglenn/monkey-magic" }
+
+[tool.setuptools]
+py-modules = ["monkey_magic"]
+
+[tool.distutils.bdist_wheel]
+universal = true
