@@ -2,7 +2,7 @@
 name = "monkey-magic"
 version = "0.1"
 description = "Monkeypatch built-in types"
-readme = "README.md"
+readme = "README.rst"
 authors = [{ name = "Wim Glenn", email = "hey@wimglenn.com" }]
 licence = { file = "LICENSE" }
 urls = { Homepage = "https://github.com/wimglenn/monkey-magic" }
