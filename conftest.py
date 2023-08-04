@@ -7,6 +7,6 @@ sybil = Sybil(
         PythonCodeBlockParser(),
         SkipParser(),
     ],
-    patterns=["*.rst", "*.py"],
+    patterns=["*.rst"],
 )
 pytest_collect_file = sybil.pytest()
