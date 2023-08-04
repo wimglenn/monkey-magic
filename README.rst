@@ -17,17 +17,38 @@ Suppose you define a function ``href`` that you want to contribute as a "method"
 
 .. code-block:: python
 
-   def href(self):
+   def href(self: str) -> str:
+       """make a url string into a hyperlink"""
        return f'<a href="{self}">{self}</a>'
 
 Applying and then using it would look like this:
 
 >>> from monkey_magic import monkeypatch
 >>> monkeypatch(str, href)
->>> "www.example.com".href()
+>>> url = "www.example.com"
+>>> url.href()
 '<a href="www.example.com">www.example.com</a>'
 
-This patch affects all strings, globally, and it will work regardless of whether the patch was applied before or after a string instance was created.
+This patch affects all strings, globally, including literals. It will work regardless of whether the patch was applied before or after a string instance was created.
+
+.. skip: next
+
+.. code-block::
+
+   >>> help(str.href)
+   Help on function href:
+
+   href(self: str) -> str
+      make a url string into a hyperlink
+
+
+>>> "href" in dir(str)
+True
+>>> "hello".href
+<bound method href of 'hello'>
+>>> "hello".href()
+'<a href="hello">hello</a>'
+
 
 More Examples
 -------------
@@ -137,7 +158,7 @@ FAQ
    You should not use this. Just use a function.
 
 ... Where are the tests?
-   This ``README.rst`` is the test. All the code-blocks here are actually `executed <https://github.com/simplistix/sybil>`_.
+   This ``README.rst`` is the test. The code-blocks in this document are actually `executed <https://github.com/simplistix/sybil>`_.
 
 ... Does this work in PyPy?
    The code uses implementation details of CPython. It will not work in PyPy.

@@ -5,6 +5,7 @@ import types
 def _wrap_builtin_function(f):
     def f_py(*args, **kwargs):
         return f(*args, **kwargs)
+
     f_py.__name__ = f.__name__
     return f_py
 

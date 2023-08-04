@@ -1,12 +1,12 @@
-from doctest import ELLIPSIS
-
 from sybil import Sybil
-from sybil.parsers.rest import DocTestParser, PythonCodeBlockParser
+from sybil.parsers.rest import DocTestParser, PythonCodeBlockParser, SkipParser
 
-pytest_collect_file = Sybil(
+sybil = Sybil(
     parsers=[
-        DocTestParser(optionflags=ELLIPSIS),
+        DocTestParser(),
         PythonCodeBlockParser(),
+        SkipParser(),
     ],
     patterns=["*.rst", "*.py"],
-).pytest()
+)
+pytest_collect_file = sybil.pytest()
